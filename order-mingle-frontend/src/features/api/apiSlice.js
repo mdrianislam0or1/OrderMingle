@@ -12,6 +12,10 @@ export const apiSlice = createApi({
       keepUnusedDataFor: 600,
       providesTags: ["users"],
     }),
+    getUser: builder.query({
+      query: (userId) => `/users/${userId}`,
+      providesTags: (result, error, arg) => [{ type: "User", id: arg }],
+    }),
     getVideo: builder.query({
       query: (videoId) => `/videos/${videoId}`,
       providesTags: (result, error, arg) => [{ type: "Video", id: arg }],
@@ -59,6 +63,7 @@ export const apiSlice = createApi({
 
 export const {
   useGetUsersQuery,
+  useGetUserQuery,
   useGetVideoQuery,
   useGetRelatedVideosQuery,
   useAddVideoMutation,

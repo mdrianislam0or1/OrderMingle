@@ -68,6 +68,7 @@ const getUserById = async (req: Request, res: Response) => {
         username: user.username,
         fullName: user.fullName,
         age: user.age,
+        photo: user.photo,
         email: user.email,
         isActive: user.isActive,
         hobbies: user.hobbies,

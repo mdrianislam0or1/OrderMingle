@@ -6,7 +6,6 @@ import User from "./User";
 const Users = () => {
   const { data, isLoading, isError, refetch } = useGetUsersQuery();
   let content = null;
-
   if (isLoading) {
     content = <VideoLoader />;
   } else if (isError) {

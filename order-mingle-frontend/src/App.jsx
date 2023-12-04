@@ -5,7 +5,8 @@ import Navigation from "./components/Navigation";
 import Add from "./components/pages/Add";
 import Edit from "./components/pages/Edit";
 import Home from "./components/pages/Home";
-import UserDetails from "./components/pages/UserDetails";
+// import Video from "./components/pages/Video";
+import SingleUser from "./components/pages/SingleUser";
 
 function App() {
   return (
@@ -13,7 +14,8 @@ function App() {
       <Navigation />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/users/:userId" element={<UserDetails />} />
+        {/* <Route path="/users/:userId" element={<Video />} /> */}
+        <Route path="/users/:userId" element={<SingleUser />} />
         <Route path="/videos/add" element={<Add />} />
         <Route path="/videos/edit/:videoId" element={<Edit />} />
       </Routes>

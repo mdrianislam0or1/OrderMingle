@@ -5,9 +5,9 @@ import Player from "../video/Player";
 import RelatedVideos from "../video/related/RelatedVideos";
 import Error from "../ui/Error";
 import RelatedVideoLoader from "../ui/loaders/RelatedVideoLoader";
-export default function UserDetails() {
-  const { userId } = useParams();
-  const { data, isLoading, isError } = useGetVideoQuery(userId);
+export default function Video() {
+  const { videoId } = useParams();
+  const { data: video, isLoading, isError } = useGetVideoQuery(videoId);
 
   let content = null;
   if (isLoading) {
