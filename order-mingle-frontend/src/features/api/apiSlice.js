@@ -39,6 +39,18 @@ export const apiSlice = createApi({
       }),
       invalidatesTags: ["Videos"],
     }),
+    editUser: builder.mutation({
+      query: ({ userId, data }) => ({
+        url: `/users/${userId}`,
+        method: "PATCH",
+        body: data,
+      }),
+      invalidatesTags: (result, error, arg) => [
+        "Users",
+        { type: "User", id: arg.id },
+        { type: "RelatedUsers", id: arg.id },
+      ],
+    }),
     editVideo: builder.mutation({
       query: ({ id, data }) => ({
         url: `/videos/${id}`,
@@ -64,6 +76,7 @@ export const apiSlice = createApi({
 export const {
   useGetUsersQuery,
   useGetUserQuery,
+  useGetEditUserMutation,
   useGetVideoQuery,
   useGetRelatedVideosQuery,
   useAddVideoMutation,

@@ -7,6 +7,7 @@ import Edit from "./components/pages/Edit";
 import Home from "./components/pages/Home";
 // import Video from "./components/pages/Video";
 import SingleUser from "./components/pages/SingleUser";
+import EditUser from "./components/edit/EditUser";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/users/:userId" element={<SingleUser />} />
         <Route path="/videos/add" element={<Add />} />
         <Route path="/videos/edit/:videoId" element={<Edit />} />
+        <Route path="/users/edit/:userId" element={<EditUser />} />
       </Routes>
       <Footer />
     </Router>
