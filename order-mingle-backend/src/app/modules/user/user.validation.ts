@@ -11,6 +11,7 @@ const userSchema = z.object({
   }),
   age: z.number(),
   email: z.string().email(),
+  photo: z.string().url(),
   isActive: z.boolean(),
   hobbies: z.array(z.string()),
   address: z.object({

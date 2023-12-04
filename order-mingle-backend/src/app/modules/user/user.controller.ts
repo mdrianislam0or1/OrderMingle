@@ -5,21 +5,10 @@ const createUser = async (req: Request, res: Response) => {
   try {
     const { user: userData } = req.body;
     const result = await UserServices.createUserIntoDB(userData);
-    const userCreateResult = {
-      userId: result.userId,
-      username: result.username,
-      fullName: result.fullName,
-      age: result.age,
-      email: result.email,
-      isActive: result.isActive,
-      hobbies: result.hobbies,
-      address: result.address,
-    };
-
     res.status(200).json({
       success: true,
       message: 'User is created successfully',
-      data: userCreateResult,
+      data: result,
     });
   } catch (err) {
     console.log(err);
@@ -28,7 +17,7 @@ const createUser = async (req: Request, res: Response) => {
       message: 'Internal server error',
       error: {
         code: 404,
-        description: 'User not found!',
+        description: 'Not Created User!',
       },
     });
   }
@@ -38,9 +27,11 @@ const getAllUsers = async (req: Request, res: Response) => {
   try {
     const result = await UserServices.getAllUsersFromDB();
     const filteredUsers = result.map((user) => ({
+      userId: user.userId,
       username: user.username,
       fullName: user.fullName,
       age: user.age,
+      photo: user.photo,
       email: user.email,
       address: user.address,
     }));

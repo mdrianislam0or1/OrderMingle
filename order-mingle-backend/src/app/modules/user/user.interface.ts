@@ -4,6 +4,7 @@ export type User = {
   password: string;
   fullName: FullName;
   age: number;
+  photo: string;
   email: string;
   isActive: boolean;
   hobbies: string[];

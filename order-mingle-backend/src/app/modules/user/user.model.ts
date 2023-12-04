@@ -24,6 +24,7 @@ const userSchema = new Schema<User>({
   password: { type: String, required: true },
   fullName: { type: fullNameSchema, required: true },
   age: { type: Number, required: true },
+  photo: { type: String, required: true },
   email: { type: String, required: true },
   isActive: { type: Boolean, required: true },
   hobbies: { type: [String], required: true },
