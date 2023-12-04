@@ -5,23 +5,24 @@ import { useGetEditUserMutation } from "../../features/api/apiSlice";
 import TextInput from "../ui/TextInput";
 
 const FromUser = ({ editData }) => {
+  console.log(editData);
   //   const { username } = editData;
   //   const {
-  //     userId: initialUserId,
-  //     username: initialUserName,
-  //     fullName: initialUserFullName,
-  //     age: initialAge,
-  //     photo: initialPhoto,
-  //     email: initialEmail,
-  //     isActive: initialIsActive,
-  //     hobbies: initialHobbies,
-  //     address: initialAddress,
+  //     userId,
+  //     username,
+  //     fullName,
+  //     age,
+  //     photo,
+  //     email,
+  //     isActive,
+  //     hobbies,
+  //     address,
   //   } = editData;
 
-  const [editUser, { isLoading, isError, isSuccess }] =
-    useGetEditUserMutation();
+  //   const [editUser, { isLoading, isError, isSuccess }] =
+  //     useGetEditUserMutation();
 
-  //   const [username, setUserName] = useState(initialUserName);
+  //   const [username, setUserName] = useState(username);
 
   //   const handleSubmit = (e) => {
   //     e.preventDefault();
@@ -47,7 +48,7 @@ const FromUser = ({ editData }) => {
           <div className="px-4 py-5 bg-white sm:p-6">
             <div className="grid grid-cols-6 gap-6">
               <div className="col-span-6 sm:col-span-3">
-                <TextInput title="UserName " value={editData.username} />
+                <TextInput title="UserName " value={editData?.username} />
               </div>
             </div>
           </div>
