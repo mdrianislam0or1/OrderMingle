@@ -19,7 +19,7 @@ function App() {
         <Route path="/users/:userId" element={<SingleUser />} />
         <Route path="/videos/add" element={<Add />} />
         <Route path="/videos/edit/:videoId" element={<Edit />} />
-        <Route path="/users/edit/:userId" element={<EditUser />} />
+        <Route path="/users/edit/:userId" element={<Edit />} />
       </Routes>
       <Footer />
     </Router>

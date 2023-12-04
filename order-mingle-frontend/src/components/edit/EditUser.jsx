@@ -28,7 +28,10 @@ const EditUser = () => {
             Please fillup the form to edit User
           </p>
         </div>
-        <div className="mt-5 md:mt-0 md:col-span-2">{content}</div>
+        <div className="mt-5 md:mt-0 md:col-span-2">
+          {/* <FromUser editData={data.data} /> */}
+          {content}
+        </div>
       </div>
     </div>
   );
