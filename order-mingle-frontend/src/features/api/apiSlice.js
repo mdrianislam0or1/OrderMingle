@@ -16,6 +16,14 @@ export const apiSlice = createApi({
       query: (userId) => `/users/${userId}`,
       providesTags: (result, error, arg) => [{ type: "User", id: arg }],
     }),
+    getOrder: builder.query({
+      query: (userId) => `/users/${userId}/orders`,
+      providesTags: (result, error, arg) => [{ type: "Order", id: arg }],
+    }),
+    getCalculateOrder: builder.query({
+      query: (userId) => `/users/${userId}/orders/total-price`,
+      providesTags: (result, error, arg) => [{ type: "Calculate", id: arg }],
+    }),
     getVideo: builder.query({
       query: (videoId) => `/videos/${videoId}`,
       providesTags: (result, error, arg) => [{ type: "Video", id: arg }],
@@ -31,6 +39,14 @@ export const apiSlice = createApi({
         { type: "RelatedVideos", id: arg.id },
       ],
     }),
+    addUser: builder.mutation({
+      query: (data) => ({
+        url: "/users",
+        method: "POST",
+        body: data,
+      }),
+      invalidatesTags: ["Users"],
+    }),
     addVideo: builder.mutation({
       query: (data) => ({
         url: "/videos",
@@ -40,10 +56,10 @@ export const apiSlice = createApi({
       invalidatesTags: ["Videos"],
     }),
     editUser: builder.mutation({
-      query: ({ userId, data }) => ({
+      query: ({ userId, user }) => ({
         url: `/users/${userId}`,
-        method: "PATCH",
-        body: data,
+        method: "PUT",
+        body: user,
       }),
       invalidatesTags: (result, error, arg) => [
         "Users",
@@ -76,10 +92,13 @@ export const apiSlice = createApi({
 export const {
   useGetUsersQuery,
   useGetUserQuery,
-  useGetEditUserMutation,
   useGetVideoQuery,
+  useGetOrderQuery,
+  useGetCalculateOrderQuery,
   useGetRelatedVideosQuery,
+  useAddUserMutation,
   useAddVideoMutation,
+  useEditUserMutation,
   useEditVideoMutation,
   useDeleteVideoMutation,
 } = apiSlice;

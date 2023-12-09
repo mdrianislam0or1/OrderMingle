@@ -17,7 +17,7 @@ router.get('/:userId', validateUserId, UserControllers.getUserById);
 router.put(
   '/:userId',
   validateUserId,
-  validateUser,
+
   UserControllers.updateUserById,
 );
 

@@ -89,49 +89,56 @@ const getUserById = async (req: Request, res: Response) => {
 };
 
 const updateUserById = async (req: Request, res: Response) => {
-  try {
-    const userId = req.params.userId;
-    const updatedUserData = req.body.user;
-    const user = await UserServices.updateUserByIdInDB(
-      Number(userId),
-      updatedUserData,
-    );
+  const { userId } = req.params;
+  const result = await UserServices.updateUserByIdInDB(userId, req.body);
+  res.status(200).json({
+    success: true,
+    message: 'User updated successfully',
+    data: result,
+  });
+  // try {
+  //   const userId = req.params.userId;
+  //   const updatedUserData = req.body.user;
+  //   const user = await UserServices.updateUserByIdInDB(
+  //     Number(userId),
+  //     updatedUserData,
+  //   );
 
-    if (!user) {
-      return res.status(404).json({
-        success: false,
-        message: 'User not found!',
-        error: {
-          code: 404,
-          description: 'User not found!',
-        },
-      });
-    }
-    res.status(200).json({
-      success: true,
-      message: 'User updated successfully!',
-      data: {
-        userId: user.userId,
-        username: user.username,
-        fullName: user.fullName,
-        age: user.age,
-        email: user.email,
-        isActive: user.isActive,
-        hobbies: user.hobbies,
-        address: user.address,
-      },
-    });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({
-      success: false,
-      message: 'Internal server error',
-      error: {
-        code: 505,
-        description: 'Internal server error!',
-      },
-    });
-  }
+  //   if (!user) {
+  //     return res.status(404).json({
+  //       success: false,
+  //       message: 'User not found!',
+  //       error: {
+  //         code: 404,
+  //         description: 'User not found!',
+  //       },
+  //     });
+  //   }
+  //   res.status(200).json({
+  //     success: true,
+  //     message: 'User updated successfully!',
+  //     data: {
+  //       userId: user.userId,
+  //       username: user.username,
+  //       fullName: user.fullName,
+  //       age: user.age,
+  //       email: user.email,
+  //       isActive: user.isActive,
+  //       hobbies: user.hobbies,
+  //       address: user.address,
+  //     },
+  //   });
+  // } catch (error) {
+  //   console.error(error);
+  //   res.status(500).json({
+  //     success: false,
+  //     message: 'Internal server error',
+  //     error: {
+  //       code: 505,
+  //       description: 'Internal server error!',
+  //     },
+  //   });
+  // }
 };
 
 const deleteUserById = async (req: Request, res: Response) => {

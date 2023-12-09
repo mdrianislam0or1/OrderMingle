@@ -1,9 +1,10 @@
 import { useParams } from "react-router-dom";
 import { useGetUserQuery } from "../../features/api/apiSlice";
 import UserDetails from "../Users/UserDetails";
-import VideoLoader from "../ui/loaders/VideoLoader";
+import VideoLoader from "../ui/loaders/Loader";
 import Error from "../ui/Error";
 import { UserPhoto } from "../Users/UserPhoto";
+import OrderDetails from "../Users/OrderDetails";
 
 export default function SingleUser() {
   const { userId } = useParams();
@@ -21,6 +22,7 @@ export default function SingleUser() {
       <>
         <UserPhoto data={data.data} />
         <UserDetails user={data.data} />
+        <OrderDetails data={data.data} />
       </>
     );
   }

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useGetUserQuery } from "../../features/api/apiSlice";
 import Error from "../ui/Error";
-import FromUser from "./FromUser";
+import FromUser from "./EditFromUser";
 
 const EditUser = () => {
   const { userId } = useParams();
@@ -28,10 +28,7 @@ const EditUser = () => {
             Please fillup the form to edit User
           </p>
         </div>
-        <div className="mt-5 md:mt-0 md:col-span-2">
-          {/* <FromUser editData={data.data} /> */}
-          {content}
-        </div>
+        <div className="mt-5 md:mt-0 md:col-span-2">{content}</div>
       </div>
     </div>
   );

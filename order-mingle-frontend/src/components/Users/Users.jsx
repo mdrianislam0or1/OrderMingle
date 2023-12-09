@@ -1,5 +1,5 @@
 import { useGetUsersQuery } from "../../features/api/apiSlice";
-import VideoLoader from "../ui/loaders/VideoLoader";
+import VideoLoader from "../ui/loaders/Loader";
 import Error from "../ui/Error";
 import User from "./User";
 

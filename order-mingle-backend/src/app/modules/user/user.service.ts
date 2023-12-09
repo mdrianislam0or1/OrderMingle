@@ -26,13 +26,20 @@ const getUserByIdFromDB = async (userId: number) => {
   return user;
 };
 
-const updateUserByIdInDB = async (userId: number, updatedUserData: User) => {
-  const user = await UserModel.findOneAndUpdate({ userId }, updatedUserData, {
-    new: true,
-    projection: { password: 0 },
-  });
+// const updateUserByIdInDB = async (userId: number, updatedUserData: User) => {
+//   const user = await UserModel.findOneAndUpdate({ userId }, updatedUserData, {
+//     new: true,
+//     projection: { password: 0 },
+//   });
 
-  return user;
+//   return user;
+// };
+
+const updateUserByIdInDB = async (id: string, payload: Partial<User>) => {
+  const result = await UserModel.findOneAndUpdate({ userId: id }, payload, {
+    new: true,
+  });
+  return result;
 };
 
 const deleteUserByIdFromDB = async (userId: number) => {

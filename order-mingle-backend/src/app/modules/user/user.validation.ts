@@ -2,29 +2,33 @@ import { Request, Response, NextFunction } from 'express';
 import { z } from 'zod';
 
 const userSchema = z.object({
-  userId: z.number(),
-  username: z.string(),
-  password: z.string(),
-  fullName: z.object({
-    firstName: z.string(),
-    lastName: z.string(),
-  }),
-  age: z.number(),
-  email: z.string().email(),
-  photo: z.string().url(),
-  isActive: z.boolean(),
-  hobbies: z.array(z.string()),
-  address: z.object({
-    street: z.string(),
-    city: z.string(),
-    country: z.string(),
-  }),
+  userId: z.number().optional(),
+  username: z.string().optional(),
+  password: z.string().optional(),
+  fullName: z
+    .object({
+      firstName: z.string().optional(),
+      lastName: z.string().optional(),
+    })
+    .optional(),
+  age: z.number().optional(),
+  email: z.string().email().optional(),
+  photo: z.string().url().optional(),
+  isActive: z.boolean().optional(),
+  hobbies: z.array(z.string()).optional(),
+  address: z
+    .object({
+      street: z.string().optional(),
+      city: z.string().optional(),
+      country: z.string().optional(),
+    })
+    .optional(),
 });
 
 const orderSchema = z.object({
-  productName: z.string(),
-  price: z.number(),
-  quantity: z.number(),
+  productName: z.string().optional(),
+  price: z.number().optional(),
+  quantity: z.number().optional(),
 });
 
 export const validateUser = (

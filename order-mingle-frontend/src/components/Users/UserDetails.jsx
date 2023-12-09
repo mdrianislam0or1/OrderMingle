@@ -35,6 +35,11 @@ const UserDetails = ({ user }) => {
                 Edit
               </span>
             </Link>
+            <Link to={`/users/${userId}/orders`}>
+              <span className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer">
+                Orders
+              </span>
+            </Link>
           </div>
           {/* <div className="flex gap-1 cursor-pointer" onClick={handleDelete}>
             <div className="shrink-0">

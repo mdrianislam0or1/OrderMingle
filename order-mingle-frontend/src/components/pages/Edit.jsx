@@ -1,5 +1,4 @@
 import EditUser from "../edit/EditUser";
-import EditVideo from "../edit/EditVideo";
 
 export default function Edit() {
   return (
