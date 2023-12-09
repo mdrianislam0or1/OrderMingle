@@ -67,6 +67,18 @@ export const apiSlice = createApi({
         { type: "RelatedUsers", id: arg.id },
       ],
     }),
+    addNewOrder: builder.mutation({
+      query: ({ userId, order }) => ({
+        url: `/users/${userId}/orders`,
+        method: "PUT",
+        body: order,
+      }),
+      invalidatesTags: (result, error, arg) => [
+        "Users",
+        { type: "User", id: arg.id },
+        { type: "RelatedUsers", id: arg.id },
+      ],
+    }),
     editVideo: builder.mutation({
       query: ({ id, data }) => ({
         url: `/videos/${id}`,
@@ -97,6 +109,7 @@ export const {
   useGetCalculateOrderQuery,
   useGetRelatedVideosQuery,
   useAddUserMutation,
+  useAddNewOrderMutation,
   useAddVideoMutation,
   useEditUserMutation,
   useEditVideoMutation,

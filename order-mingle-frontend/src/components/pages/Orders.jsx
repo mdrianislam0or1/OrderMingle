@@ -1,5 +1,8 @@
 import { useParams } from "react-router-dom";
-import { useGetOrderQuery } from "../../features/api/apiSlice";
+import {
+  useGetCalculateOrderQuery,
+  useGetOrderQuery,
+} from "../../features/api/apiSlice";
 import OrderDetails from "../Users/OrderDetails";
 import Error from "../ui/Error";
 import VideoLoader from "../ui/loaders/Loader";
@@ -7,20 +10,31 @@ import VideoLoader from "../ui/loaders/Loader";
 export default function Orders() {
   const { userId } = useParams();
   const { data, isError, isLoading } = useGetOrderQuery(userId);
-
-  console.log(data);
+  const {
+    data: calculate,
+    isError: calculateError,
+    isLoading: calculateLoading,
+  } = useGetCalculateOrderQuery(userId);
 
   let content = null;
-  if (isLoading) {
+  if (isLoading || calculateLoading) {
     content = <VideoLoader />;
-  } else if (isError) {
+  } else if (isError || calculateError) {
     content = <Error message="There was an error" />;
   } else if (!data || !data.data || !data.data.orders) {
     content = <Error message="No orders available" />;
   } else if (data.data.orders.length > 0) {
-    content = data.data.orders.map((order) => (
-      <OrderDetails key={order._id} order={order} />
-    ));
+    content = (
+      <div>
+        {data.data.orders.map((order) => (
+          <OrderDetails
+            key={order._id}
+            order={order}
+            totalPrice={calculate.data.totalPrice}
+          />
+        ))}
+      </div>
+    );
   } else {
     content = <Error message="No orders available" />;
   }

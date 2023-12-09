@@ -25,11 +25,13 @@ const userSchema = z.object({
     .optional(),
 });
 
-const orderSchema = z.object({
-  productName: z.string().optional(),
-  price: z.number().optional(),
-  quantity: z.number().optional(),
-});
+const orderSchema = z
+  .object({
+    productName: z.string().optional(),
+    price: z.number().optional(),
+    quantity: z.number().optional(),
+  })
+  .optional();
 
 export const validateUser = (
   req: Request,

@@ -9,7 +9,7 @@ export default function Navigation() {
           <img className="h-10" src={logo} alt="Learn with Sumit" />
         </Link>
         <Link
-          to="/users/add"
+          to="/videos/add"
           className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-0 focus:ring-offset-0 focus:ring-indigo-500"
         >
           + Add Video

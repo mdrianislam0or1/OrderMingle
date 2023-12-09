@@ -24,20 +24,34 @@ const UserDetails = ({ user }) => {
         </h2>
 
         <div className="flex gap-6 w-full justify-end">
-          <div className="flex gap-1">
+          <div className="flex gap-6">
             <div className="shrink-0">
               <Link to={`/users/edit/${userId}`}>
                 <img className="w-5 block" src={photo} alt="Edit" />
               </Link>
             </div>
-            <Link to={`/users/edit/${userId}`}>
+            <Link
+              className="px-2 py-1 rounded-badge bg-purple-400 text-black "
+              to={`/users/edit/${userId}`}
+            >
               <span className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer">
                 Edit
               </span>
             </Link>
-            <Link to={`/users/${userId}/orders`}>
+            <Link
+              className="px-2 py-1 rounded-badge bg-purple-400 text-black "
+              to={`/users/${userId}/orders`}
+            >
               <span className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer">
                 Orders
+              </span>
+            </Link>
+            <Link
+              className="px-2 py-1 rounded-badge bg-purple-400 text-black "
+              to={`/users/${userId}/orders/add`}
+            >
+              <span className="text-sm leading-[1.7142857] text-slate-600 cursor-pointer">
+                Add More Order
               </span>
             </Link>
           </div>

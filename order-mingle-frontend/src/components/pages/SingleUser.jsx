@@ -10,6 +10,7 @@ export default function SingleUser() {
   const { userId } = useParams();
   const { data, isLoading, isError } = useGetUserQuery(userId);
   let content = null;
+
   if (isLoading) {
     return <VideoLoader />; // You can replace this with your loading component
   }
@@ -22,11 +23,9 @@ export default function SingleUser() {
       <>
         <UserPhoto data={data.data} />
         <UserDetails user={data.data} />
-        <OrderDetails data={data.data} />
       </>
     );
   }
-
   return (
     <div>
       <section className="pt-6 pb-20 min-h-[calc(100vh_-_157px)]">

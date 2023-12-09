@@ -8,6 +8,7 @@ import Home from "./components/pages/Home";
 import SingleUser from "./components/pages/SingleUser";
 import AddUser from "./components/pages/AddUser";
 import Orders from "./components/pages/Orders";
+import AddOrders from "./components/pages/AddOrders";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/videos/edit/:videoId" element={<Edit />} />
         <Route path="/users/edit/:userId" element={<Edit />} />
         <Route path="/users/:userId/orders" element={<Orders />} />
+        <Route path="/users/:userId/orders/add" element={<AddOrders />} />
       </Routes>
       <Footer />
     </Router>
