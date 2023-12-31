@@ -3,8 +3,6 @@ import { useGetUserQuery } from "../../features/api/apiSlice";
 import UserDetails from "../Users/UserDetails";
 import VideoLoader from "../ui/loaders/Loader";
 import Error from "../ui/Error";
-import { UserPhoto } from "../Users/UserPhoto";
-import OrderDetails from "../Users/OrderDetails";
 
 export default function SingleUser() {
   const { userId } = useParams();
@@ -18,34 +16,24 @@ export default function SingleUser() {
   if (isError) {
     return <Error message="something error" />; // You can replace this with your error component
   }
+
   if (!isLoading && !isError) {
     content = (
       <>
-        <UserPhoto data={data.data} />
+        {/* <UserPhoto data={data.data} /> */}
         <UserDetails user={data.data} />
       </>
     );
   }
-  return (
-    <div>
-      <section className="pt-6 pb-20 min-h-[calc(100vh_-_157px)]">
-        <div className="mx-auto max-w-7xl px-2 pb-20 min-h-[400px]">
-          <div className="grid grid-cols-3 gap-2 lg:gap-8">
-            <div className="col-span-full w-full space-y-8 lg:col-span-2">
-              {content}
-            </div>
 
-            {/* {video?.id ? (
-            <RelatedVideos id={video.id} title={video.title} />
-          ) : isLoading ? (
-            <>
-              <RelatedVideoLoader />
-              <RelatedVideoLoader />
-              <RelatedVideoLoader />
-            </>
-          ) : (
-            <Error message="No related videos found" />
-          )} */}
+  return (
+    <div className="bg-gray-100">
+      <section className="pt-10 pb-20 min-h-screen">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
+            <div className="lg:col-span-1">
+              <div className="bg-white p-6 rounded-lg shadow-md">{content}</div>
+            </div>
           </div>
         </div>
       </section>

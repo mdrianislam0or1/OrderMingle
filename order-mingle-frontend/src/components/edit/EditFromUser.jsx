@@ -51,21 +51,21 @@ const FromUser = ({ editData }) => {
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <TextInput
-                  title="UserName"
+                  title="Age"
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <TextInput
-                  title="UserName"
+                  title="Photo"
                   value={photo}
                   onChange={(e) => setPhoto(e.target.value)}
                 />
               </div>
               <div className="col-span-6 sm:col-span-3">
                 <TextInput
-                  title="UserName"
+                  title="Email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                 />
@@ -88,8 +88,8 @@ const FromUser = ({ editData }) => {
               Save
             </button>
           </div>
-          {isSuccess && <Success message="Video was edited successfully" />}
-          {isError && <Error message="There was an error editing video!" />}
+          {isSuccess && <Success message="User was edited successfully" />}
+          {isError && <Error message="There was an error editing User!" />}
         </div>
       </form>
     </div>

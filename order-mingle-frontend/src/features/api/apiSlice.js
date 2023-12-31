@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:5000/api",
+    baseUrl: "https://order-mingle.vercel.app/api",
   }),
   tagTypes: ["Users", "User"],
   endpoints: (builder) => ({
@@ -27,17 +27,6 @@ export const apiSlice = createApi({
     getVideo: builder.query({
       query: (videoId) => `/videos/${videoId}`,
       providesTags: (result, error, arg) => [{ type: "Video", id: arg }],
-    }),
-    getRelatedVideos: builder.query({
-      query: ({ id, title }) => {
-        const tags = title.split(" ");
-        const likes = tags.map((tag) => `title_like=${tag}`);
-        const queryString = `/videos?${likes.join("&")}&_limit=4`;
-        return queryString;
-      },
-      providesTags: (result, error, arg) => [
-        { type: "RelatedVideos", id: arg.id },
-      ],
     }),
     addUser: builder.mutation({
       query: (data) => ({

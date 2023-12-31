@@ -58,7 +58,7 @@ export default function AddOrders() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-5 lg:px-0">
+    <div className="max-w-7xl my-20 mx-auto px-5 lg:px-0">
       <div className="w-full">
         <div className="px-4 sm:px-0 pb-4">
           <h3 className="text-lg font-medium leading-6 text-gray-900">

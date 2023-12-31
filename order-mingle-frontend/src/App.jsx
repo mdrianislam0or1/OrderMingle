@@ -9,24 +9,27 @@ import SingleUser from "./components/pages/SingleUser";
 import AddUser from "./components/pages/AddUser";
 import Orders from "./components/pages/Orders";
 import AddOrders from "./components/pages/AddOrders";
+import AllUsers from "./components/pages/AllUsers";
 
 function App() {
   return (
-    <Router>
-      <Navigation />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        {/* <Route path="/users/:userId" element={<Video />} /> */}
-        <Route path="/users/:userId" element={<SingleUser />} />
-        <Route path="/videos/add" element={<Add />} />
-        <Route path="/users/add" element={<AddUser />} />
-        <Route path="/videos/edit/:videoId" element={<Edit />} />
-        <Route path="/users/edit/:userId" element={<Edit />} />
-        <Route path="/users/:userId/orders" element={<Orders />} />
-        <Route path="/users/:userId/orders/add" element={<AddOrders />} />
-      </Routes>
-      <Footer />
-    </Router>
+    <div>
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/all-users" element={<AllUsers />} />
+          <Route path="/users/:userId" element={<SingleUser />} />
+          <Route path="/videos/add" element={<Add />} />
+          <Route path="/users/add" element={<AddUser />} />
+          <Route path="/videos/edit/:videoId" element={<Edit />} />
+          <Route path="/users/edit/:userId" element={<Edit />} />
+          <Route path="/users/:userId/orders" element={<Orders />} />
+          <Route path="/users/:userId/orders/add" element={<AddOrders />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </div>
   );
 }
 

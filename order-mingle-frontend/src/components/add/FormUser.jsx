@@ -126,44 +126,44 @@ export default function FormUser() {
         onSubmit={handleSubmit}
         className="shadow sm:rounded-md sm:overflow-hidden"
       >
-        <div className="px-4 py-5 bg-white space-y-6 sm:p-6">
-          <div className="grid grid-cols-6 gap-6">
-            <div className="col-span-6 sm:col-span-3">
+        <div className="bg-white rounded-md p-6 space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="col-span-1">
               <TextInput
                 title="UserName"
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="UserId"
                 value={userId}
                 onChange={(e) => setUserId(e.target.value)}
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="age"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="hobbies"
                 value={hobbies.join(", ")}
                 onChange={(e) => setHobbies(e.target.value.split(", "))}
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="address street"
                 value={address.street}
@@ -172,7 +172,7 @@ export default function FormUser() {
                 }
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="address city"
                 value={address.city}
@@ -181,7 +181,7 @@ export default function FormUser() {
                 }
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="address country"
                 value={address.country}
@@ -190,7 +190,7 @@ export default function FormUser() {
                 }
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="order product name"
                 value={orders.productName}
@@ -199,7 +199,7 @@ export default function FormUser() {
                 }
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="order price"
                 value={orders.price}
@@ -208,7 +208,7 @@ export default function FormUser() {
                 }
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="order quantity"
                 value={orders.quantity}
@@ -217,26 +217,23 @@ export default function FormUser() {
                 }
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-2">
               <TextInput
                 title="First Name"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
               />
             </div>
-            <div className="col-span-6 sm:col-span-3">
+            <div className="col-span-1">
               <TextInput
                 title="Last Name"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
               />
             </div>
-            <div className="col-span-3 sm:col-span-2">
-              <label
-                htmlFor="company_website"
-                className="block text-sm font-medium text-gray-700"
-              >
-                photo
+            <div className="col-span-3">
+              <label className="block text-sm font-medium text-gray-700">
+                Photo
               </label>
               <div className="mt-1 flex rounded-md shadow-sm">
                 <span className="inline-flex items-center px-3 rounded-l-md border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm">
@@ -254,7 +251,7 @@ export default function FormUser() {
               </div>
             </div>
           </div>
-          <div className="px-4 py-3 bg-gray-50 text-right sm:px-6">
+          <div className="flex justify-end">
             <button
               disabled={isLoading}
               type="submit"
@@ -263,10 +260,10 @@ export default function FormUser() {
               Create
             </button>
           </div>
-
-          {isSuccess && <Success message="User was created successfully" />}
-          {isError && <Error message="There was an error creating the user" />}
         </div>
+
+        {isSuccess && <Success message="User was created successfully" />}
+        {isError && <Error message="There was an error creating the user" />}
       </form>
     </div>
   );
